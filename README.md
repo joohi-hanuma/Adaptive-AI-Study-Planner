@@ -221,3 +221,10 @@ Internship Project – Adaptive AI Study Planner using Agentic AI and LangGraph
 ## 📄 License
 
 This project is developed for educational and internship purposes.
+
+
+<img width="1893" height="830" alt="Screenshot 2026-08-01 231949" src="https://github.com/user-attachments/assets/1ee022d2-3d84-4b6b-9472-2c79cfb0a6ab" />
+
+<img width="1892" height="902" alt="Screenshot 2026-08-01 190549" src="https://github.com/user-attachments/assets/ee4f8f8e-9582-47e0-bb1b-8b4205cefbcc" />
+
+
