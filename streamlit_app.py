@@ -1,7 +1,6 @@
 
 """
 Streamlit UI for the Adaptive AI Study Planner.
- 
 Visual style matches a reference "AI Study Planner" dashboard: light
 background, purple accent sidebar, stat tiles, a donut progress chart,
 and card-based resource/tip/deadline widgets.
