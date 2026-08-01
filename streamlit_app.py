@@ -114,6 +114,13 @@ h1, h2, h3, h4, h5, h6 { font-family: 'Poppins', sans-serif; }
     background: linear-gradient(180deg, rgba(27,20,66,0.97) 0%, rgba(36,27,92,0.97) 100%);
     backdrop-filter: blur(12px);
 }
+/* Make sure the sidebar scrolls -- with many subjects the form is
+   taller than the viewport, and this was previously getting clipped
+   with no visible scrollbar. */
+[data-testid="stSidebar"] > div {
+    height: 100vh;
+    overflow-y: auto !important;
+}
 [data-testid="stSidebar"] * { color: #EDEBFB !important; }
 [data-testid="stSidebar"] input, [data-testid="stSidebar"] textarea {
     color: #1F2340 !important;
@@ -180,8 +187,10 @@ h1, h2, h3, h4, h5, h6 { font-family: 'Poppins', sans-serif; }
  
 /* ---------------------------------------------------------------
    Bordered containers used as dashboard cards -- glass style
+   (scoped to the MAIN area only -- must NOT apply inside the
+   sidebar, or the Subject boxes there turn white-on-white)
 --------------------------------------------------------------- */
-[data-testid="stVerticalBlockBorderWrapper"] {
+[data-testid="stMain"] [data-testid="stVerticalBlockBorderWrapper"] {
     border-radius:18px !important;
     background: rgba(255,255,255,0.72) !important;
     backdrop-filter: blur(10px);
@@ -190,11 +199,25 @@ h1, h2, h3, h4, h5, h6 { font-family: 'Poppins', sans-serif; }
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     animation: fadeInUp 0.45s ease both;
 }
-[data-testid="stVerticalBlockBorderWrapper"]:hover {
+[data-testid="stMain"] [data-testid="stVerticalBlockBorderWrapper"]:hover {
     box-shadow:0 10px 28px rgba(31,35,64,0.12);
 }
-[data-testid="stVerticalBlockBorderWrapper"] h4 {
+[data-testid="stMain"] [data-testid="stVerticalBlockBorderWrapper"] h4 {
     margin:0 0 0.9rem 0; font-size:1.05rem;
+}
+ 
+/* Sidebar's own bordered Subject boxes -- keep dark & readable */
+[data-testid="stSidebar"] [data-testid="stVerticalBlockBorderWrapper"] {
+    background: rgba(255,255,255,0.06) !important;
+    border:1px solid rgba(255,255,255,0.18) !important;
+    border-radius:12px !important;
+}
+[data-testid="stSidebar"] [data-testid="stVerticalBlockBorderWrapper"] * {
+    color: #EDEBFB !important;
+}
+[data-testid="stSidebar"] [data-testid="stVerticalBlockBorderWrapper"] input,
+[data-testid="stSidebar"] [data-testid="stVerticalBlockBorderWrapper"] textarea {
+    color: #1F2340 !important;
 }
  
 /* per-card accent gradients (via Streamlit's container key -> st-key-*) */
